@@ -2,7 +2,7 @@
 """
 Created on Mon Jul  1 18:28:03 2024
 
-@author: chenx
+@author: zedoweyou
 """
 
 # setup.py
