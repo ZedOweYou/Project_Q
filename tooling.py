@@ -7,12 +7,13 @@ Created on Mon Jul  1 21:50:31 2024
 
 #tooling.py
 
-import pykx as kx
+from pykx.wrappers import Table
 from pykx import q
-import pandas as pd
+from pandas.core.frame import DataFrame
 import numpy as np
 
-def pandas_to_kdb(df):
+#convert from pandas dataframe to kdb table
+def pandas_to_kdb(df: DataFrame) -> Table:
     q.set('t',q('!', df.columns, [np.array(df[x]) for x in df.columns]))
     q('t:flip t')
     t = q("select from t") 
