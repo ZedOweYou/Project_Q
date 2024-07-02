@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Mon Jul  1 18:51:58 2024
+Created on Mon Jul  1 18:51:58 2024.
 
 @author: ZedOweYou
 """
@@ -54,8 +54,7 @@ def get_sym_data(symbol: str,
         raise em.NoData("No Data Recieved from yfinance")
     if pandas:
         return df
-    t = pandas_to_kdb(df)
-    return t
+    return pandas_to_kdb(df)
 
 
 def get_new_sym_data(symbol: str) -> Table:
