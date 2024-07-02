@@ -19,6 +19,7 @@ jobs:
         python -m pip install --upgrade pip
         export LANG=en_US.UTF-8
         pip install pylint
+        pip install -r requirements.txt
     - name: Analysing the code with pylint
       run: |
         find . -name '*.py' -exec pylint {} \;
