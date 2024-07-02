@@ -6,6 +6,7 @@ Created on Tue Jul  2 08:30:52 2024
 """
 
 #database_manager.py
+#read and writes q tables to splayed table files
 
 from pykx import q
 from pykx.wrappers import Table

@@ -27,6 +27,7 @@ def get_sym_data(symbol:str, start: datetime=None) -> Table:
     t = pandas_to_kdb(df)
     return t
 
+#get latest date from table, only pull data from after that date
 def update_sym_data(symbol:str) -> Table:
     t = dm.read_table(symbol)
     print(q("t"))
