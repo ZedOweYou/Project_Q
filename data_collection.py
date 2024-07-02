@@ -31,8 +31,8 @@ def get_sym_data(symbol: str,
     symbol (str): The stock symbol to retrieve data for.
 
     start (datetime, optional): The start date for the historical data.
-
     If None, defaults to the past 1 day.
+    
     pandas (bool, optional): If True, return the data as a pandas DataFrame.
     If False, convert to a kdb+ table.
 
