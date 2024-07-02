@@ -9,10 +9,12 @@ Created on Tue Jul  2 08:30:52 2024
 # read and writes q tables to splayed table files
 
 # external
+from datetime import datetime
+
 from pykx import q
 from pykx.wrappers import Table
 from pykx.wrappers import SymbolAtom
-from datetime import datetime
+
 
 # internal
 from tooling import utc_to_est
@@ -29,6 +31,7 @@ def save_table(t: Table, sym: str) -> SymbolAtom:
     Returns.
         SymbolAtom: The symbol representing the saved file path or identifier.
     """
+    q.set('t', t)
     return q('`:data/'+sym+'/ set t')
 
 
@@ -58,5 +61,5 @@ def latest_date(sym: str) -> datetime:
     """
     q('t: get `:data/'+sym+'/')
     q('t: select from t')
-    latest_date = q("max t`Datetime").py()
-    return utc_to_est(latest_date)
+    latest_date_value = q("max t`Datetime").py()
+    return utc_to_est(latest_date_value)
