@@ -11,7 +11,8 @@ Created on Mon Jul  1 18:51:58 2024.
 from typing import Union
 
 from datetime import datetime
-from pykx.wrappers import Table
+from pykx.wrappers import Table, SymbolAtom
+from pykx import QError
 import yfinance as yf
 from pandas import DataFrame
 
@@ -73,3 +74,26 @@ def get_new_sym_data(symbol: str) -> Table:
     latest_date = dm.latest_date(symbol)
     t = get_sym_data(symbol, start=latest_date)
     return t
+
+
+def update_sym_data(symbol: str) -> SymbolAtom:
+    """
+    Update the data for a given symbol.
+
+    Read the existing table, appending new data, and saving the updated table.
+
+    Args.
+        symbol (str): The symbol representing the data to be updated.
+
+    Returns.
+        SymbolAtom: The symbol representing the saved file path or identifier.
+    """
+    try:
+        old_data = dm.read_table(symbol)
+        new_data = get_new_sym_data(symbol)
+        data = dm.append_table(old_data, new_data)
+    except QError as e:
+        message = e.args[0].split(':')[-1]
+        if message == " The system cannot find the path specified.":
+            data = get_sym_data(symbol)
+    return dm.save_table(data, symbol)
