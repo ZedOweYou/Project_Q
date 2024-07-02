@@ -20,6 +20,10 @@ q("col2: 1000000?120")
 q("t:([]col1:col1;col2:col2)")
 # Fetch the table back into Python
 table = q("5# select col1,col2 from t")
-
 # Print the table
 print(table)
+
+#testing lists
+py_list = [1,2,3,4,5]
+q.set('list_test',kx.toq(py_list))
+print(q("list_test"))
