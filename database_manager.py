@@ -29,8 +29,7 @@ def save_table(t: Table, sym: str) -> SymbolAtom:
     Returns.
         SymbolAtom: The symbol representing the saved file path or identifier.
     """
-    p = ('`:data/'+sym+'/ set t')
-    return p
+    return q('`:data/'+sym+'/ set t')
 
 
 def read_table(sym: str) -> Table:

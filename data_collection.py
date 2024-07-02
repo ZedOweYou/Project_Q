@@ -8,10 +8,11 @@ Created on Mon Jul  1 18:51:58 2024
 # data_collection.py
 
 # external
+from typing import Union
+
 from datetime import datetime
 from pykx.wrappers import Table
 import yfinance as yf
-from typing import Union
 from pandas import DataFrame
 
 # internal
