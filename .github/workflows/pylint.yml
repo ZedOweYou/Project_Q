@@ -17,6 +17,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
+        export LANG=en_US.UTF-8
         pip install pylint
     - name: Analysing the code with pylint
       run: |
