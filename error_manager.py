@@ -10,5 +10,3 @@ Created on Tue Jul  2 11:36:58 2024
 
 class NoData(Exception):
     """Exception raised when no data is available."""
-
-    pass
