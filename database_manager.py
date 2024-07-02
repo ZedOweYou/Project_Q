@@ -81,5 +81,3 @@ def latest_date(sym: str) -> datetime:
     q('t: select from t')
     latest_date_value = q("max t`Datetime").py()
     return utc_to_est(latest_date_value)
-
-
