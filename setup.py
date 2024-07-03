@@ -23,6 +23,11 @@ table = q("5# select col1,col2 from t")
 # Print the table
 print(table)
 
+# run make table from q script
+q("\l setup.q")
+table2 = q('makeSampleTable', None)
+print(table2)
+
 # testing lists
 py_list = [1, 2, 3, 4, 5]
 q.set('list_test', kx.toq(py_list))
