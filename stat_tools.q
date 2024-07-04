@@ -1,13 +1,13 @@
 / Box Mueller
 / convert 2 uniform random variates to 2 normal random variates
-bm:{[x]
+bm:{
     if [count[x] mod2; '`length];
     x:2 0N#x;
     r:sqrt -2f*log x 0;
     theta: 2f*acos[-1]*x 1;
     x: r*cos theta;
     x,:r*sin theta;
-}
+    x}
 
 / Beasley Springer 
 / inverse cumulative normal
@@ -15,7 +15,7 @@ cnorminv:{
     a: 25.44106049637 4139119773534 -18.61500062529 2.50662823884;
     b: 3.13082909833 -21.06224101826 23.08336743743 -8.47351093030 1;
     x*:horner[a;s]%horner[b] s:x*x-:.5;
-}
+    x}
 
 / Horner's method 
 / like the "scalar from vector" operator but for many values instead of single
@@ -31,14 +31,14 @@ tnorminv:{
       0.0003951896511919 0.0038405929373609 0.0276438810333863
       0.1607979714918209 0.9761690190917186 0.3374754822726147;
     x:horner[a] log neg log 1f-x;
-}
+    x}
 
 /Beasley Springer Moro
 /uses Beasley Springer polynomial approximation to compute inverse cumulative normal
 /uses the Chebyshev approximation for tail regions
 norminv:{
-    i:x<.5;
-    x:?[i;1f-x;x]
-    x:?[x<.92:cnorminv x: tnorminv x]
-    x:?[i; neg x; x]
-}
+    i:x<0.5;
+    x:?[i;1f-x;x];
+    x:?[x<0.92;cnorminv x; tnorminv x];
+    x:?[i; neg x; x];
+    x}
