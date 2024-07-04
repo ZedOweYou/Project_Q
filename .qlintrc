@@ -1,0 +1,15 @@
+{
+  "rules": {
+    "no-console": "warn",
+    "indent": ["error", 2],
+    "quotes": ["error", "double"],
+    "semi": ["error", "always"]
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2020
+  }
+}
