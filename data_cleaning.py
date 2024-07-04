@@ -24,9 +24,13 @@ def foward_fill(t: Table) -> Table:
     return q('fills t')
 
 
-def tablesomething(t: Table) -> Table:
+def process_returns(t: Table) -> Table:
     """
-    Normalize the input table `t` using a predefined normalization method.
+    Process table prices.
+
+    Normalize the input table `t` by (price-price1)*100/price1 to new columns
+    Get normalized column deltas as interval returns
+    Get interval returns cumulative sums as cumulative returns
 
     Parameters.
         t (Table): Input table to be normalized.
@@ -34,5 +38,6 @@ def tablesomething(t: Table) -> Table:
     Returns.
         Table: Normalized table.
     """
-    q('\l data_cleaning.q')
+    q('f: `:./data_cleaning.q')
+    q('if[f~key f; system "l ", string f]')
     return q('normTable', t)
