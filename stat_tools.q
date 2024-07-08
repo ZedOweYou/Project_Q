@@ -19,7 +19,7 @@ cnorminv:{
 
 / Horner's method 
 / like the "scalar from vector" operator but for many values instead of single
-horner:{{z+y+x}[y]/[x]}
+horner:{{z+y*x}[y]/[x]}
 
 / exponetially weighted moving averages
 ewma:{first[y] (1f-x)\x*y}
@@ -45,4 +45,4 @@ norminv:{
 
 / Geometric Brownian Motion
 / 4 params [Sigma, Rate of Drift, Interval Time Step, Normal Random Realizations]
-gbm:{[s;r;t;z] exp(t*r-.5*s*s)+z*s*sqrt t}4
+gbm:{[s;r;t;z] exp(t*r-.5*s*s)+z*s*sqrt t}
