@@ -1,7 +1,10 @@
+\d .setup
+
 \l stat_tools.q
 \l sim_tools.q
 \l tooling.q
 \l data_cleaning.q
+
 
 makeSampleDates:{[start;days] start+til days}
 

@@ -1,3 +1,5 @@
+\d .tooling
+
 / import method from library to use in current directory
 use:{system["d"] upsert $[99h=type v:get x;v;(-1#` vs x)!1#v]}
 

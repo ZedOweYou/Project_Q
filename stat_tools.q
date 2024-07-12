@@ -1,3 +1,8 @@
+\d .stat_tools
+/Auto Correlation
+ac:{x % first x: x{(y#x) $neg[y]#x}/:c-til c:count x-: avg x}
+
+
 / Box Mueller
 / convert 2 uniform random variates to 2 normal random variates
 bm:{

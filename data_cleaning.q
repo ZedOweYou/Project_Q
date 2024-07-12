@@ -1,3 +1,5 @@
+\d .data_cleaning
+
 norm:{[x] 1+(100*x-first x)%first x}
 return:{[x]}
 
